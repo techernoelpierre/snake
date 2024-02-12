@@ -92,13 +92,13 @@ class Snake:
     def Move(self):
         new_coordinate = self.coordinate.copy()
         new_coordinate.insert(0, (self.head[0] + speed[0], self.head[1] + speed[1]))
-        new_coordinate.pop(len(new_coordinate) - 1)
+        new_coordinate.pop(-1)
         self.head = new_coordinate[0]
         self.coordinate = new_coordinate
 
     def Enlarge(self):
-        x_0, y_0 = self.coordinate[len(self.coordinate) - 1]
-        x_1, y_1 = self.coordinate[len(self.coordinate) - 2]
+        x_0, y_0 = self.coordinate[-1]
+        x_1, y_1 = self.coordinate[-2]
 
         if x_0 - x_1 > 0:
             self.coordinate.append((x_0 + 1, y_0))
